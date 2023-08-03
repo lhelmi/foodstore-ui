@@ -10,6 +10,13 @@ export default function Register(){
     let { register, handleSubmit, formState: { errors }, setError } = useForm();
 
     const onSubmit = async formData => {
+        let { password, password_confirmation } = formData;
+        if(password !== password_confirmation){
+            return setError('password_confirmation', {
+                type: 'equality',
+                message : 'Konfirmasi password harus sama dengan password!'
+            });
+        }
         let { data } = await registerUser(formData);
         if(data.error){
             let fields = Object.keys(data.fields);
