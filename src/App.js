@@ -8,8 +8,8 @@ import { listen } from './app/listener';
 import store from './app/store';
 import Home from './pages/Home';
 import Register from './pages/Register';
-
-
+import RegisterSuccess from './pages/Register/success';
+import Login from './pages/Login/index';
 
 function App() {
   React.useEffect(() => {
@@ -20,8 +20,10 @@ function App() {
   <Provider store = {store}>
     <Router>
       <Routes>
-        <Route path="/register" Component={ Register }/>
-        <Route path="/" Component={ Home }/>
+        <Route path="/register" Component={ Register } />
+        <Route path="/register/success" Component={ RegisterSuccess } />
+        <Route path="/" Component={ Home } />
+        <Route path="/login" Component={ Login } />
       </Routes>
     </Router>
   </Provider>
