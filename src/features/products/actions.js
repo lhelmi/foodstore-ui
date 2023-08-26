@@ -42,7 +42,7 @@ export const fetchProducts = () => {
         
         dispatch(startFetchingProducts());
         
-        let perPage = getState().products.perPage || 9;
+        let perPage = getState().products.perPage || 5;
         let currentPage = getState().products.currentPage || 1;
         let tags = getState().products.tags || [];
         let keyword = getState().products.keyword || '';

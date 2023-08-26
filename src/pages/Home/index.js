@@ -27,7 +27,7 @@ export default function Home(){
 
     React.useEffect(() => {
         dispatch(fetchProducts());
-    }, [dispatch, products.currentPage]);
+    }, [dispatch, products.currentPage, products.keyword]);
     return (
         <div>
             <LayoutSidebar
@@ -36,6 +36,17 @@ export default function Home(){
                     <div className="md:flex md:flex-row-reverse w-full mr-5 h-full min-h-screen">
                         <div className="w-full md:w-3/4 pl-5 pb-10">
                             <TopBar/>
+                            <div className="w-full text-center mb-10 mt-5">
+                                <InputText
+                                    fullRound
+                                    value = {products.keyword}
+                                    placeholder = "cari makanan favoritmu..."
+                                    fitContainer
+                                    onChange = {e => {
+                                        dispatch(setKeyword(e.target.value))
+                                    }}
+                                />
+                            </div>
                             {
                                 products.status === 'process' && !products.data.length ?
                                 <div className='flex justify-center'>

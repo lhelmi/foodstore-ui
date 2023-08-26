@@ -16,7 +16,7 @@ const initialState = {
     data: [],
     currentPage : 1,
     totalItems : -1,
-    perPage : 6,
+    perPage : 3,
     keyword : '',
     category : '',
     tags : [],
